@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    position: relative; /* Needed for z-index */
+    z-index: 2; /* Ensure header is above sidebar */
+}
+
+.burger-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px; /* Add margin to separate from the title */
+}
+
+
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Make the image circular */
+    margin-left: 10px;
+    cursor: pointer; /* Add pointer cursor to indicate clickability */
+}
+
+.sidebar {
+    position: fixed;
+    top: 60px; /* Adjust to align with the bottom of the header */
+    left: -200px; /* Start off-screen to the left */
+    bottom: 0;
+    width: 120px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease; /* Add smooth transition */
+    z-index: 1; /* Ensure sidebar is below header */
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.panel button {
+    margin-bottom: 10px;
+}
+
+.feed {
+    margin-top: 20px;
+    margin-left: 20px; /* Adjust based on the sidebar width */
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling for the feed */
+    height: calc(100vh - 120px); /* Adjust the height based on your header's height */
+}
+
+
+/* New CSS for the floating action button and options */
+.floating-action-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 3; /* Ensure it's above the feed and sidebar */
+}
+
+.options {
+    position: fixed;
+    bottom: 90px; /* Adjust based on the floating action button's height */
+    right: 20px;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    align-items: flex-end;
+    transition: all 0.3s ease; /* Smooth transition */
+    transform-origin: bottom right; /* Set transform origin for animation */
+}
+
+.options.active {
+    display: flex; /* Show the options panel when active */
+}
+
+.options button {
+    background-color: #ff0019;
+    color: #fff;
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(0); /* Initially hidden */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.options.active button {
+    transform: scale(1); /* Show the buttons with scale animation */
+}
+
+.options button:last-child {
+    margin-bottom: 0; /* Remove margin for the last button */
+}
+
+/* Add this CSS to homepage.css */
+.search-bar {
+    position: fixed;
+    top: 120px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.search-bar input {
+    width: calc(100% - 70px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #090909;
+}
+
+/* Add this CSS to homepage.css */
+
+.post {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-profile-pic img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-details {
+    flex-grow: 1;
+}
+
+.options {
+    position: relative;
+}
+
+.three-dots-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.options-menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+}
+
+.options:hover .options-menu {
+    display: block;
+}
+
+.options-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.about-idea {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.post-footer {
+    display: flex;
+}
+
+.post-footer button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Horizontal Line */
+hr {
+    margin-top: 20px;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
